@@ -1,0 +1,46 @@
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+
+label.error {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 5px;
+}
+
+.valid {
+    color: #28a745;
+    font-size: 0.875rem;
+    margin-top: 5px;
+}
+
+body {
+    padding-top: 56px; 
+}
+
+.sidebar {
+    position: fixed;
+    top: 56px; 
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+.main {
+    margin-top: 56px; 
+}
