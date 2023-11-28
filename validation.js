@@ -33,7 +33,7 @@ $(document).ready(function () {
            
         },
         submitHandler: function (form) {
-            // Form is valid, handle submission
+            
             var formData = new FormData(form);
 
             $.ajax({
@@ -43,7 +43,7 @@ $(document).ready(function () {
                 contentType: false,
                 processData: false,
                 success: function (response) {
-                    // Display the response message directly
+                    
                     alert(response);
                 },
                 error: function () {

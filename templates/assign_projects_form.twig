@@ -1,0 +1,34 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>Assign Projects</title>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2>Assign Projects to {{ user.first_name }} {{ user.last_name }}</h2>
+    <form action="assign_projects.php?id={{ user.user_id }}" method="post">
+
+        <div class="form-group">
+            <label for="projects">Select Projects:</label>
+            
+            {% for project in projects %}
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="project_{{ project.project_id }}" name="projects[]" value="{{ project.project_id }}">
+                    <label class="form-check-label" for="project_{{ project.project_id }}">{{ project.project_name }}</label>
+                </div>
+            {% endfor %}
+            
+        </div>
+
+        <button type="submit" name="assignProjects" class="btn btn-primary">Assign Projects</button>
+    </form>
+</div>
+
+</body>
+</html>

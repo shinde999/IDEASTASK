@@ -1,0 +1,47 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="Pvalidation.js"></script>
+    <title>Create Project</title>
+  
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2>Create Project</h2>
+    <form action="process_create_project.php" method="post">
+        <div class="form-group">
+            <label for="projectName">Project Name:</label>
+            <input type="text" class="form-control" id="projectName" name="projectName" required>
+        </div>
+        <div class="form-group">
+            <label for="projectNumber">Project Number:</label>
+            <input type="text" class="form-control" id="projectNumber" name="projectNumber" required>
+        </div>
+        <div class="form-group">
+            <label for="image">Image:</label>
+            <input type="file" class="form-control-file" id="image" name="image" accept="image/*" required>
+        </div>
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <textarea class="form-control" id="address" name="address" rows="3" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="startDate">Start Date:</label>
+            <input type="date" class="form-control" id="startDate" name="startDate" required>
+        </div>
+        <div class="form-group">
+            <label for="endDate">End Date:</label>
+            <input type="date" class="form-control" id="endDate" name="endDate" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Create Project</button>
+    </form>
+</div>
+
+</body>
+</html>

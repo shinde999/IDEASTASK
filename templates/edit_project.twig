@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>Edit Project</title>
+    
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2>Edit Project</h2>
+    <form action="process_edit_project.php" method="post">
+        <!-- IT WILL SHOW current values of the project -->
+        <div class="form-group">
+            <label for="projectName">Project Name:</label>
+            <input type="text" class="form-control" id="projectName" name="projectName" value="{{ project.project_name }}" required>
+        </div>
+        <div class="form-group">
+            <label for="projectNumber">Project Number:</label>
+            <input type="text" class="form-control" id="projectNumber" name="projectNumber" value="{{ project.project_number }}" required>
+        </div>
+        
+
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+    </form>
+</div>
+
+</body>
+</html>
