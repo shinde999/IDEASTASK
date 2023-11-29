@@ -1,7 +1,7 @@
 <?php
 
-require_once 'Database.php'; 
-require_once 'ProjectRepository.php'; 
+require_once '../src/Database.php/Database.php';
+require_once '../src/Repository/ProjectRepository.php'; 
 
 // Create a new DBConnection instance
 $dbConnection = new DBConnection();
@@ -13,10 +13,11 @@ $projectRepository = new ProjectRepository($dbConnection);
 $projects = $projectRepository->getAllProjects();
 
 // Include the Twig autoload file
-require_once 'vendor/autoload.php';
+require_once '../vendor/autoload.php';
+
 
 // Create a Twig environment
-$loader = new \Twig\Loader\FilesystemLoader('templates/');
+$loader = new \Twig\Loader\FilesystemLoader('../templates/');
 $twig = new \Twig\Environment($loader);
 
 // Render the project listing page

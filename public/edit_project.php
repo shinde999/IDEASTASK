@@ -1,11 +1,11 @@
 <?php
 
-require_once 'Database.php'; 
-require_once 'vendor/autoload.php'; 
-require_once 'ProjectRepository.php'; 
+require_once '../src/Database.php/Database.php';
+require_once __DIR__ . '/../vendor/autoload.php';
+require_once '../src/Repository/ProjectRepository.php'; 
 
 // Create a Twig environment
-$loader = new \Twig\Loader\FilesystemLoader('templates/');
+$loader = new \Twig\Loader\FilesystemLoader(__DIR__ . '/../templates/');
 $twig = new \Twig\Environment($loader);
 
 // Check if the project ID is provided in the query parameters

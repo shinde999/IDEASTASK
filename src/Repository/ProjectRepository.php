@@ -1,6 +1,6 @@
 <?php
 
-require_once 'Database.php';
+require_once '../src/Database.php/Database.php';
 
 class ProjectRepository
 {
@@ -26,7 +26,5 @@ class ProjectRepository
 
         return $result->fetch_assoc();
     }
-
-    
 }
 ?>

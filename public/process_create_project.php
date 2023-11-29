@@ -1,6 +1,6 @@
 <?php
 
-require_once 'Database.php'; 
+require_once '../src/Database.php/Database.php';
 
 // Check if the request method is POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {

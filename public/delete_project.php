@@ -1,6 +1,6 @@
 <?php
 
-require_once 'Database.php'; 
+require_once '../src/Database.php/Database.php';
 
 // Check if the project ID is provided in the query parameters
 if (isset($_GET['id'])) {

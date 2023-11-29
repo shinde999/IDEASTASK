@@ -1,9 +1,7 @@
 <?php
 
-require_once 'Database.php';
+require_once '../src/Database.php/Database.php';
 require_once 'UserSignup.php';
-
-// Check if the request method is POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Create a new DBConnection instance
     $dbConnection = new DBConnection();

@@ -1,7 +1,7 @@
 <?php
 
-require_once 'Database.php';
-require_once 'UserRepository.php';
+require_once '../src/Database.php/Database.php';
+require_once  '../src/Repository/UserRepository.php';
 
 // Check if the user ID is provided in the query parameters
 if (isset($_GET['id'])) {

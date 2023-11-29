@@ -1,11 +1,11 @@
 <?php
 
-require_once 'vendor/autoload.php';
-require_once 'Database.php';
-require_once 'UserRepository.php';
+require_once '../vendor/autoload.php';
+require_once '../src/Database.php/Database.php';
+require_once '../src/Repository/UserRepository.php';
 
 // Create a Twig environment
-$loader = new \Twig\Loader\FilesystemLoader('templates/');
+$loader = new \Twig\Loader\FilesystemLoader('../templates/');
 $twig = new \Twig\Environment($loader);
 
 // Create a DBConnection instance
