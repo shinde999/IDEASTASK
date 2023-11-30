@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <title>User Management</title>
+    <title>Drawings Listing</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
     <div class="row">
@@ -39,40 +39,31 @@
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 {# <h1 class="h2">Overview</h1> #}
             </div>
-<div class="container mt-5">
-    <h2>User Management</h2>
-    <a href="index.php" class="btn btn-success mb-3">Create User</a>
-
-
-    <table class="table table-bordered table-striped">
-        <thead class="thead-dark">
-            <tr>
-                <th>ID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>User Type</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for user in users %}
+    <div class="container mt-5">
+        <h2>Drawings Listing</h2>
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>{{ user.user_id }}</td>
-                    <td>{{ user.first_name }}</td>
-                    <td>{{ user.last_name }}</td>
-                    <td>{{ user.email }}</td>
-                    <td>{{ user.user_type }}</td>
-                    <td>
-                        <a href="edit_user.php?id={{ user.user_id }}" class="btn btn-primary">Edit</a>
-                        <a href="delete_user.php?id={{ user.user_id }}" class="btn btn-danger">Delete</a>
-                        <a href="assign_projects.php?id={{ user.user_id }}" class="btn btn-info">Assign Projects</a>
-                    </td>
+                    <th>Drawing No</th>
+                    <th>Name</th>
+                    <th>Status</th>
+                    <th>File</th>
+                    <th>Category</th>
                 </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</div>
-
+            </thead>
+            <tbody>
+                {% for drawing in drawings %}
+                    <tr>
+                        <td>{{ drawing.drawing_no }}</td>
+                        <td>{{ drawing.drawing_name }}</td>
+                        <td>{{ drawing.status }}</td>
+                        <td><a href="{{ drawing.file }}" target="_blank">Download</a></td>
+                        <td>{{ drawing.category }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="drawings_form.php" class="btn btn-primary">Create New</a>
+    </div>
 </body>
 </html>

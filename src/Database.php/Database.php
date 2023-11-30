@@ -6,13 +6,17 @@ class DBConnection {
     private $dbpass = "";
     private $dbname = "project_management_db";
     private $dbport = "3307";
-    public $connection;
+    private $connection;
 
     public function __construct() {
-        $this->connection = new mysqli($this->dbhost, $this->dbuser, $this->dbpass, $this->dbname, $this->dbport);
+        try {
+            $this->connection = new mysqli($this->dbhost, $this->dbuser, $this->dbpass, $this->dbname, $this->dbport);
 
-        if ($this->connection->connect_error) {
-            die("Connection failed: " . $this->connection->connect_error);
+            if ($this->connection->connect_error) {
+                throw new Exception("Connection failed: " . $this->connection->connect_error);
+            }
+        } catch (Exception $e) {
+            die($e->getMessage());
         }
     }
 
@@ -21,23 +25,33 @@ class DBConnection {
     }
 
     public function executeQuery($sql, $params = []) {
-        $stmt = $this->connection->prepare($sql);
+        try {
+            $stmt = $this->connection->prepare($sql);
 
-        if ($stmt === false) {
-            die("Error in preparing SQL statement: " . $this->connection->error);
+            if ($stmt === false) {
+                throw new Exception("Error in preparing SQL statement: " . $this->connection->error);
+            }
+
+            if (!empty($params)) {
+                $types = str_repeat('s', count($params));
+                $stmt->bind_param($types, ...$params);
+            }
+
+            $success = $stmt->execute();
+
+            if ($success) {
+                return $stmt->get_result();
+            } else {
+                throw new Exception("Error in executing SQL statement: " . $stmt->error);
+            }
+        } catch (Exception $e) {
+            die($e->getMessage());
         }
+    }
 
-        if (!empty($params)) {
-            $types = str_repeat('s', count($params));
-            $stmt->bind_param($types, ...$params);
-        }
-
-        $success = $stmt->execute();
-
-        if ($success) {
-            return $stmt->get_result();
-        } else {
-            die("Error in executing SQL statement: " . $stmt->error);
+    public function closeConnection() {
+        if ($this->connection) {
+            $this->connection->close();
         }
     }
 }
